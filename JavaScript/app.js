@@ -81,16 +81,16 @@ console.log("애플워치랑 맥북 가격 얼마에요?");
 
 // 계산기 만들기
 const 계산기 = {
-    더하기: function(a,b) {
+    더하기: (a,b) => {
         console.log("가격은", (a + b), "만원입니다.");
     },
-    곱하기: function(a,b) {
+    곱하기: (a,b) => {
         console.log("가격은", (a * b), "만원입니다.");
     },
-    나누기: function(a,b) {
+    나누기: (a,b) => {
         console.log("가격은", (a / b), "만원입니다.");
     },
-    빼기: function(a,b) {
+    빼기: (a,b) => {
         console.log("가격은", (a - b), "만원입니다.");
     }
 }
