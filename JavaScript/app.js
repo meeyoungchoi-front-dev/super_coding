@@ -117,3 +117,11 @@ console.log(할인된_가격("맥북", 2000000));
 for (let i = 0; i < 10; i++) {
     console.log("이건 얼마냐구요!!!!");
 }
+
+for (i = 0; i < 10; i++) {
+    if (i % 2 === 0) {
+        console.log(i + " :짝수");
+    } else {
+        console.log(i + " :홀수");
+    }
+}
