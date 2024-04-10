@@ -41,5 +41,3 @@ window.addEventListener('resize', 실행될_함수);
 
 // html head 태그의 title 바꾸기
 document.title = "javascript clock";
-
-
