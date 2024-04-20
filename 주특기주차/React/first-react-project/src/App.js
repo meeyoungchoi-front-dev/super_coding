@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import TextComponent from './components/TextComponent';
 import Section from './components/Section';
 import Toast from "./components/Toast";
+import ToastMessage from './components/ToastMessage';
+import ToastButton from './components/ToastButton';
 
 function App() {
   const messageArray = [
@@ -34,9 +36,18 @@ function App() {
 
   return (
     <div className="wrapper">
-      {messageArray.map((message) =>  (
-          <Toast message={message} title={message.title} text={message.text}/>
-        ))}
+      <Toast message={messageArray[0]}>
+        <ToastMessage message={messageArray[0]}/>
+        <ToastButton/>
+      </Toast>
+      <Toast message={messageArray[1]}>
+        <ToastMessage message={messageArray[1]}/>
+        <ToastButton/>
+      </Toast>
+      <Toast message={messageArray[2]}>
+        <ToastMessage message={messageArray[2]}/>
+        <ToastButton/>
+      </Toast>
     </div>
   );
 }
