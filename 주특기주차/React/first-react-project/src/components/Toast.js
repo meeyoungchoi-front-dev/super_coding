@@ -3,6 +3,7 @@ import "./Toast.css";
 import ToastButton from './ToastButton';
 import ToastMessage from './ToastMessage';
 const Toast = ({message, children}) => {
+    console.log("toast component is executed");
     return (
         <div className={`toast toast-${message.title}`}>
             {children}

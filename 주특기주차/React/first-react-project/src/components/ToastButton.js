@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const ToastButton = ({message}) => {
-    let text = "sample";
+    const [text, setText] = useState('sample');
     const buttonClickHandler = (title) => {
         console.log(title);
-        text = "changed!";
+        setText("changed!");
     };
 
     return (
