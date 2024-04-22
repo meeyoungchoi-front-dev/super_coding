@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import {useState} from 'react';
 // import './App.css';
 import TextComponent from './components/TextComponent';
 import Section from './components/Section';
@@ -23,8 +24,12 @@ function App() {
     }
   ];
 
+  const [title, setTitle] = useState("hello");
+
   return (
     <div className="wrapper">
+      <p>{title}</p>
+      <button onClick={() => setTitle("changed!")}>클릭하기</button>
       <Toast message={messageArray[0]}>
         <ToastMessage message={messageArray[0]}/>
         <ToastButton  message={messageArray[0]}/>
