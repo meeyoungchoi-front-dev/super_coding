@@ -13,21 +13,10 @@ function App() {
       text: 'Right On!'
     },
     {
-      title: 'success',
-      text: 'Right On!'
-    },
-    {
       title: 'warning',
       text: 'Hmmm'
     },
-    {
-      title: 'warning',
-      text: 'Hmmm'
-    },
-    {
-      title: 'error',
-      text: 'Uh Oh!'
-    },
+    
     {
       title: 'error',
       text: 'Uh Oh!'
@@ -38,15 +27,15 @@ function App() {
     <div className="wrapper">
       <Toast message={messageArray[0]}>
         <ToastMessage message={messageArray[0]}/>
-        <ToastButton/>
+        <ToastButton  message={messageArray[0]}/>
       </Toast>
       <Toast message={messageArray[1]}>
         <ToastMessage message={messageArray[1]}/>
-        <ToastButton/>
+        <ToastButton  message={messageArray[1]}/>
       </Toast>
       <Toast message={messageArray[2]}>
         <ToastMessage message={messageArray[2]}/>
-        <ToastButton/>
+        <ToastButton  message={messageArray[2]}/>
       </Toast>
     </div>
   );
