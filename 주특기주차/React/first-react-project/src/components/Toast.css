@@ -49,3 +49,10 @@
   .toast-error {
     border-color: rgb(179, 0, 0);
   }
+
+  .toast__button__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }

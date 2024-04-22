@@ -8,11 +8,10 @@ const ToastButton = ({message}) => {
     };
 
     return (
-        <div>
-            <p>{text}</p>
+        <div className="toast__button__wrapper">
+            <button className="toast__button">{message.errorButton}</button>
             <button className="toast__button" onClick={() => buttonClickHandler(message.title)}>Dismiss</button>
-        </div>
-        
+        </div>        
     );
 };
 
