@@ -14,6 +14,7 @@ const Expenses = (props) => {
           date={item.date}
           gender={item.gender}
           developmentField={item.developmentField}
+          color={item.color}
         />
       ))}
     </Card>

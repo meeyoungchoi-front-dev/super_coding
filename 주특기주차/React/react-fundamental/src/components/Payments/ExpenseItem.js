@@ -12,7 +12,8 @@ const ExpenseItem = (props) => {
 			<div className="expense-item__description">
 				<h2>{props.title}</h2>
 				<small>{props.gender}</small>
-				<small>{props.developmentField}</small>
+				<small>${props.developmentField}</small>
+				<small>{props.color}</small>
 				<div className="expense-item__price">${props.amount}</div>
 			</div>
 		</Card>

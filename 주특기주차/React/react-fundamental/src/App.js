@@ -17,8 +17,9 @@ function App() {
 	]);
 
 	// 자식 컴포넌트에서 작성한 값을 부모 컴포넌트에서 찍어보기 위해 부모의 상태를 만들어준다
-	const getPaymentFormData = (data) => {
+	const getPaymentFormData = (data, checkIdsData) => {
 		console.log(data);
+		console.log(checkIdsData);
 		// 부모컴포넌트에서 받은 값을 또 다른 자식 컴포넌트의 UI에 자동으로 업데이트 해준다
 		setExpenses([
 			{
@@ -27,7 +28,8 @@ function App() {
 				amount: data.price,
 				date: data.today,
 				gender: data.gender,
-				developmentField: data.developmentField,
+				developmentField: checkIdsData,
+				color: data.color,
 			},
 		]);
 	};

@@ -19,6 +19,7 @@ const PaymentForm = ({getPaymentFormData}) => {
 		today: new Date(),
 		gender: "",
 		developmentField: "",
+		color: "",
 	});
 
 	const inputTextHandler = (event) => {
@@ -45,13 +46,14 @@ const PaymentForm = ({getPaymentFormData}) => {
 	const buttonSubmitHander = (event) => {
 		event.preventDefault();
 		console.log("selectedIds: ", selectedIds);
-		getPaymentFormData(objectState);
+		getPaymentFormData(objectState, selectedIds);
 		setObjectState({
 			name: "",
 			price: 0,
 			today: new Date(),
-			gender: "",
-			devFiledList: "",
+			gender: null,
+			devFiledList: null,
+			color: null,
 		});
 	};
 
@@ -76,14 +78,16 @@ const PaymentForm = ({getPaymentFormData}) => {
 				})
 			})
 		}
+	};
 
+	const changeColor = (event) => {
 		setObjectState((prevState) => ({
 			...prevState,
-			developmentField: selectedIds,
+			color: event.target.value,
 		}));
+	}
 
 
-	};
 
 	const devFiledList = Object.keys(devFields);
 
@@ -144,7 +148,7 @@ const PaymentForm = ({getPaymentFormData}) => {
 						<div>
 							<input
 								type="color"
-								onChange={console.log.bind(console, 'change from react')}
+								onChange={changeColor}
 								onInput={console.log.bind(console, 'input from react')}
 							/>
 						</div>
