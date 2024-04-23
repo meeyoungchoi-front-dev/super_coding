@@ -11,6 +11,8 @@ function App() {
 			title: "수건",
 			amount: 3000,
 			date: new Date(2023, 11, 15),
+			gender: "male",
+			developmentField: "frontend",
 		},
 	]);
 
@@ -24,6 +26,8 @@ function App() {
 				title: data.name,
 				amount: data.price,
 				date: data.today,
+				gender: data.gender,
+				developmentField: data.developmentField,
 			},
 		]);
 	};

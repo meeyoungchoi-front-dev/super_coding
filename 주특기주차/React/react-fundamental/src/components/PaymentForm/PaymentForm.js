@@ -7,6 +7,8 @@ const PaymentForm = ({getPaymentFormData}) => {
 		name: "",
 		price: 0,
 		today: new Date(),
+		gender: "",
+		developmentField: "",
 	});
 
 	const inputTextHandler = (event) => {
@@ -37,7 +39,23 @@ const PaymentForm = ({getPaymentFormData}) => {
 			name: "",
 			price: 0,
 			today: new Date(),
+			gender: "",
+			developmentField: "",
 		});
+	};
+
+	const handleChange = (event) => {
+		setObjectState((prevState) => ({
+			...prevState,
+			gender: event.target.value,
+		}));
+	};
+
+	const handleCheckboxChange = (event) => {
+		setObjectState((prevState) => ({
+			...prevState,
+			developmentField: event.target.value,
+		}));
 	};
 
 	return (
@@ -72,6 +90,23 @@ const PaymentForm = ({getPaymentFormData}) => {
 							value={objectState.today}
 						/>
 					</div>
+					<div className="new-payment-div__wrapper">
+						<div className="new-payment-radio__control">
+							<label for="male">Male</label>
+							<input type="radio" id="male" value="male" name="gender" onChange={handleChange}/>
+							<label for="female">Female</label>
+							<input type="radio" id="female" value="female" name="gender" onChange={handleChange}/>
+						</div>
+						<div className="new-payment-checkbox__control">
+							<label for="backend">backend</label>
+							<input type="checkbox" id="backend" value="backend" name="developmentField" onChange={handleCheckboxChange}/>
+							<label for="frontend">frontend</label>
+							<input type="checkbox" id="frontend" value="frontend" name="developmentField" onChange={handleCheckboxChange}/>
+							<label for="fullstack">fullstack</label>
+							<input type="checkbox" id="fullstack" value="fullstack" name="developmentField" onChange={handleCheckboxChange}/>
+						</div>
+					</div>
+					
 				</div>
 				<div className="new-payment__actions">
 					<button type="submit">결제 추가</button>
