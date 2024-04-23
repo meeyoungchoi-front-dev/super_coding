@@ -3,6 +3,16 @@ import React, { useState } from "react";
 import "./PaymentForm.css";
 
 const PaymentForm = ({getPaymentFormData}) => {
+	const LIST_DATA = {
+		Backend: false,
+		Frontend: false,
+		Fullstack: false,
+	}
+
+	const [ devFields, setDevFields ] = React.useState(LIST_DATA);
+
+	const [selectedIds, setSelectedIds] = useState([]);
+
 	const [objectState, setObjectState] = useState({
 		name: "",
 		price: 0,
@@ -34,13 +44,14 @@ const PaymentForm = ({getPaymentFormData}) => {
 
 	const buttonSubmitHander = (event) => {
 		event.preventDefault();
+		console.log("selectedIds: ", selectedIds);
 		getPaymentFormData(objectState);
 		setObjectState({
 			name: "",
 			price: 0,
 			today: new Date(),
 			gender: "",
-			developmentField: "",
+			devFiledList: "",
 		});
 	};
 
@@ -51,12 +62,31 @@ const PaymentForm = ({getPaymentFormData}) => {
 		}));
 	};
 
-	const handleCheckboxChange = (event) => {
+	const handleSelect = (event) => {
+		let isSelected = event.target.checked;
+		let value = event.target.value;
+
+		if (isSelected) {
+			console.log("value: " , value);
+			setSelectedIds( [ ...selectedIds, value ])
+		} else {
+			setSelectedIds((prevData) => {
+				prevData.filter((item) => {
+					return item!==value;
+				})
+			})
+		}
+
 		setObjectState((prevState) => ({
 			...prevState,
-			developmentField: event.target.value,
+			developmentField: selectedIds,
 		}));
+
+
 	};
+
+	const devFiledList = Object.keys(devFields);
+
 
 	return (
 		<div className="new-payment">
@@ -98,12 +128,25 @@ const PaymentForm = ({getPaymentFormData}) => {
 							<input type="radio" id="female" value="female" name="gender" onChange={handleChange}/>
 						</div>
 						<div className="new-payment-checkbox__control">
-							<label for="backend">backend</label>
-							<input type="checkbox" id="backend" value="backend" name="developmentField" onChange={handleCheckboxChange}/>
-							<label for="frontend">frontend</label>
-							<input type="checkbox" id="frontend" value="frontend" name="developmentField" onChange={handleCheckboxChange}/>
-							<label for="fullstack">fullstack</label>
-							<input type="checkbox" id="fullstack" value="fullstack" name="developmentField" onChange={handleCheckboxChange}/>
+							{devFiledList.map((item) => (
+								<div className='checkbox' key={item}>
+									<input
+										type='checkbox'
+										id={item}
+										value={item}
+										checked={selectedIds.includes(item)}
+										onChange={handleSelect}
+									/>
+									<label for={item}>{item}</label>
+								</div>
+							))}
+						</div>
+						<div>
+							<input
+								type="color"
+								onChange={console.log.bind(console, 'change from react')}
+								onInput={console.log.bind(console, 'input from react')}
+							/>
 						</div>
 					</div>
 					

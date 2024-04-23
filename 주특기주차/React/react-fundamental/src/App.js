@@ -12,7 +12,7 @@ function App() {
 			amount: 3000,
 			date: new Date(2023, 11, 15),
 			gender: "male",
-			developmentField: "frontend",
+			developmentField: ["frontend", "backend"],
 		},
 	]);
 
