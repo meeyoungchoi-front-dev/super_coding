@@ -3,7 +3,7 @@ import {useState} from 'react';
 // import './App.css';
 import TextComponent from './components/TextComponent';
 import Section from './components/Section';
-import Toast from "./components/Toast";
+import Toast, {hello, world} from "./components/Toast";
 import ToastMessage from './components/ToastMessage';
 import ToastButton from './components/ToastButton';
 import ToastMessageContent from './components/ToastMessageContent';
@@ -52,6 +52,8 @@ function App() {
         </ToastMessage>
         <ToastButton  message={messageArray[2]}/>
       </Toast>
+      {hello}
+      {world}
     </div>
   );
 }
