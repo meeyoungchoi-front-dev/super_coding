@@ -7,7 +7,7 @@ const PaymentForm = () => {
   const [objectState, setObjectState] = useState({
     name: '',
     price: 0,
-    today: null
+    today: new Date()
   })
 
   // onChange를 통해 input에서 값을 받고 이벤트를 감지한다
@@ -23,14 +23,21 @@ const PaymentForm = () => {
     setObjectState(prevState => ({...prevState, today: event.target.value}));   
   };
 
-  const buttonSubmitHandler = () => {
+  const buttonSubmitHandler = (event) => {
+      event.preventDefault();
       console.log('name', objectState.name);
       console.log('price', objectState.price);
       console.log('today', objectState.today);
+      // 객체를 초기화 해준다
+      setObjectState({
+        name: '',
+        price: 0,
+        today: new Date()
+      });
   }
 
   return (
-    <form>
+    <form onSubmit={buttonSubmitHandler}>
       <div className='new-payment__controls'>
         <div className='new-payment__control'>
           <label>이름</label>
@@ -46,7 +53,7 @@ const PaymentForm = () => {
         </div>
       </div>
       <div className='new-payment__actions'>
-        <button type='button' onClick={buttonSubmitHandler}>결제 추가</button>
+        <button type='submit' onClick={buttonSubmitHandler}>결제 추가</button>
       </div>
     </form>
   );
