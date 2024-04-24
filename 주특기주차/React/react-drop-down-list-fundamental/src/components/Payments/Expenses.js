@@ -6,15 +6,15 @@ import "./Expenses.css";
 import ExpensesFilter from './ExpensesFilter';
 
 const Expenses = (props) => {
-	const [filteredYear, setFilteredYear] = useState('2023');
+	const [filteredYear, setFilteredYear] = useState(250);
 
-	const filterChangeHandler = (selectedYear) => {
-		setFilteredYear(selectedYear);
+	const filterChangeHandler = (filteredYear) => {
+		setFilteredYear(filteredYear);
 	};
 
 	// 아이템들을 필터 연도와 같은것만 먼저 보여준다
 	const filteredExpenses = props.items.filter((expenses) => {
-		return expenses.date.getFullYear().toString() === filteredYear;
+		return expenses.amount == filteredYear;
 	});
 
 	let expensesContent = <p>값이 없습니다.</p>
@@ -43,7 +43,7 @@ const Expenses = (props) => {
 						amount={item.amount}
 						date={item.date}
 					/>
-				)) : <p>값이 업슷ㅂ니다.</p>
+				)) : <p>값이 없습니다.</p>
 			}
 		</Card>
 	);

@@ -9,31 +9,37 @@ function App() {
 		{
 			id: "e1",
 			title: "수건",
-			amount: 12.33,
+			amount: 300,
 			date: new Date(2022, 3, 14),
 		},
 		{
 			id: "e2",
 			title: "물티슈",
-			amount: 234.11,
+			amount: 250,
 			date: new Date(2023, 8, 22),
 		},
 		{
 			id: "e3",
 			title: "모니터",
-			amount: 3331.33,
+			amount: 250,
 			date: new Date(2021, 10, 22),
 		},
 		{
 			id: "e4",
 			title: "의자",
-			amount: 298,
+			amount: 350,
 			date: new Date(2022, 1, 31),
 		},
 		{
-			id: "e4",
+			id: "e5",
 			title: "의자",
-			amount: 298,
+			amount: 450,
+			date: new Date(2021, 6, 1),
+		},
+		{
+			id: "e6",
+			title: "책상",
+			amount: 450,
 			date: new Date(2021, 6, 1),
 		},
 	]);
