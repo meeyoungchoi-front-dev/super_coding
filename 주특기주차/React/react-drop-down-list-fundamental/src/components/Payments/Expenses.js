@@ -36,16 +36,15 @@ const Expenses = (props) => {
 				selected={filteredYear}
 				onChangeFilter={filterChangeHandler}
 			/>
-			{filteredExpenses.length > 0 && filteredExpenses.map((item) => (
-			<ExpenseItem
-				title={item.title}
-				amount={item.amount}
-				date={item.date}
-			/>
-		))}
-		{filteredExpenses.length === 0 && <p>값이 없습니다.</p>
-
-		}
+			{filteredExpenses.length > 0 ?
+				 filteredExpenses.map((item) => (
+					<ExpenseItem
+						title={item.title}
+						amount={item.amount}
+						date={item.date}
+					/>
+				)) : <p>값이 업슷ㅂ니다.</p>
+			}
 		</Card>
 	);
 };
