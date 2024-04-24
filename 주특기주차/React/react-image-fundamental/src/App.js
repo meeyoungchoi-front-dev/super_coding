@@ -45,12 +45,12 @@ function App() {
 		]);
 	};
 
-  const deleteExpenseItem = (id) => {
-    console.log(id);
-    // 1. filter
-    const newFilteredArray = expenses.filter(item => item.id !== id);
-    setExpenses(newFilteredArray);
-
+  const deleteExpenseItem = (index) => {
+    console.log(index);
+    // slice
+    const beforeArray = expenses.slice(0, index);
+    const afterArray = expenses.slice(index + 1);
+    setExpenses([...beforeArray, ...afterArray]);
   }
 
 

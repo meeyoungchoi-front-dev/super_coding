@@ -87,10 +87,7 @@ const PaymentForm = ({getPaymentFormData}) => {
 		}));
 	}
 
-
-
 	const devFiledList = Object.keys(devFields);
-
 
 	return (
 		<div className="new-payment">
