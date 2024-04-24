@@ -34,10 +34,9 @@ const CourseInput = props => {
   console.log(isValid)
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
+      <div className={`form-control ${!isValid ? 'invalid' : ''}`}>
         <label>목표</label>
         <input type="text" onChange={goalInputChangeHandler} 
-        style={ {backgroundColor: isValid ? "transparent" : "pink", borderColor: isValid ? "#ccc" : "red"}}
         />
       </div>
       <Button type="submit">목표 추가하기</Button>
