@@ -53,6 +53,7 @@ const PaymentForm = ({ getPaymentFormData }) => {
 							type="text"
 							onChange={inputTextHandler}
 							value={objectState.name}
+							aria-label = "name"
 						/>
 					</div>
 					<div className="new-payment__control">
@@ -63,6 +64,7 @@ const PaymentForm = ({ getPaymentFormData }) => {
 							step="0.01"
 							onChange={inputPriceHandler}
 							value={objectState.price}
+							aria-label = "price"
 						/>
 					</div>
 					<div className="new-payment__control">
@@ -73,6 +75,7 @@ const PaymentForm = ({ getPaymentFormData }) => {
 							max="2023-12-31"
 							onChange={inputTodayHandler}
 							value={objectState.today}
+							aria-label = "today"
 						/>
 					</div>
 				</div>
