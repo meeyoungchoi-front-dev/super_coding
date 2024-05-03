@@ -5,14 +5,13 @@ const NewsList = () => {
 
     const [news, setNews] = useState([]);
 
-    const getNewsList = () => {
-        fetch('https://newsapi.org/v2/top-headlines?country=kr&category=business&from=2024-05-03&apiKey=799a5624a4ee472bae7ddcdd20c6ccdf').then((response) => response.json()).then(((data) => {
-            console.log(data); setNews(data.articles);
-        } ));
+    const getNewsList = async () => {
+        const response = await fetch(
+            'https://newsapi.org/v2/top-headlines?country=kr&category=business&from=2024-05-03&apiKey=799a5624a4ee472bae7ddcdd20c6ccdf');
+            const data = await response.json()
+            console.log(data);
+            setNews(data.articles);
     };
-
-    getNewsList();
-
 
     const dummy = [
         {
