@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NewsItem from '../NewsItem';
 
 const NewsList = () => {
 
     const [news, setNews] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+ 
+    useEffect(() => {
+        getNewsList();
+    }, []);
 
     const getNewsList = async () => {
-        const response = await fetch(
-            'https://newsapi.org/v2/top-headlines?country=kr&category=business&from=2024-05-03&apiKey=799a5624a4ee472bae7ddcdd20c6ccdf');
-            const data = await response.json()
-            console.log(data);
-            setNews(data.articles);
+        try {
+            setIsLoading(true);
+            const response = await fetch(
+                'https://newsapi.org/v2/top-headlines?country=kr&category=business&from=2024-05-03&apiKey=799a5624a4ee472bae7ddcdd20c6ccdf');
+                const data = await response.json()
+                console.log(data);
+                setNews(data.articles);
+                setIsLoading(false);
+        } catch (error) {
+            console.error(error.message);
+        }
+       
     };
 
     const dummy = [
@@ -56,7 +68,8 @@ const NewsList = () => {
     ]
     return (
         <div>
-        {news.map(news => <NewsItem {...news} />)}
+        {!isLoading && news.map((news, index) => ( <NewsItem key={`new-${index}`} {...news} />))}
+        {isLoading && <p>로딩중입니다.</p>}
         </div>
     );
     };
