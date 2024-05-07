@@ -8,6 +8,12 @@ const SimpleInput = (props) => {
   
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
+    
+    setENteredNameIsTouched(true);
+
+    if (event.target.value.trim() === "") {
+      setEnteredNameIsValid(false);
+    } else setEnteredNameIsValid(true);
   };
 
   const formSubmitHandler = (event) => {
@@ -16,7 +22,6 @@ const SimpleInput = (props) => {
 
     setENteredNameIsTouched(true);
    
-
     // enteredName이 빈 값인 경우 제출이 안되게 수정
     if (enteredName.trim() === "") {
       console.log('submit fail');
@@ -33,11 +38,20 @@ const SimpleInput = (props) => {
 
   const nameInputClasses = nameInputIsInValid ? "form-contrl invalid" : "form-control";
 
+  const nameInputBlurHandler = (event) => {
+    console.log("eventonBlur!");
+    setENteredNameIsTouched(true);
+    if (enteredName.trim() === "") {
+      setEnteredNameIsValid(false);
+      return;
+    } 
+  }
+
   return (
     <form onSubmit={formSubmitHandler}>
       <div className='form-control'>
         <label htmlFor='name'>당신의 이름은?</label>
-        <input type='text' id='name'  ref={nameInputRef} value={enteredName} onChange={nameInputChangeHandler}/>
+        <input type='text' id='name'  ref={nameInputRef} value={enteredName} onChange={nameInputChangeHandler} onBlur={nameInputBlurHandler}/>
         {nameInputIsInValid && (<p className="error-text">이름값은 빈 값이 아니어야 합니다</p>)}
       </div>
       <div className="form-actions">
